@@ -1,0 +1,138 @@
+<h1 style="text-align: center" class="p-5">mAadhar Portal</h1>
+
+<div class="signin-container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <h3>Sign Up</h3>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input
+            type="text"
+            id="userLoginFullname"
+            placeholder="Enter your full name"
+            formControlName="userFullName"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && c['userFullName'].errors }"
+          />
+          <div
+            *ngIf="submitted && c['userFullName'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="c['userFullName'].errors['required']">
+              Full name is required
+            </div>
+            <div *ngIf="c['userFullName'].errors['userFullName']">
+              CitizenId must be a valid id
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            id="userLoginEmail"
+            type="text"
+            placeholder="Enter your email"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && c['email'].errors }"
+          />
+          <div *ngIf="submitted && c['email'].errors" class="invalid-feedback">
+            <div *ngIf="c['email'].errors['required']">Email is required</div>
+            <div *ngIf="c['email'].errors['email']">
+              Email should be a valid emailId.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Mobile</label>
+          <input
+            type="mobile"
+            id="userLoginMobile"
+            placeholder="Enter password"
+            class="form-control"
+            formControlName="mobile"
+            [ngClass]="{
+              'is-invalid': submitted && c['mobile'].errors
+            }"
+          />
+          <div *ngIf="submitted && c['mobile'].errors" class="invalid-feedback">
+            <div *ngIf="c['mobile'].errors['required']">
+              Mobile Number is required.
+            </div>
+            <div *ngIf="c['mobile'].errors['minlength']">
+              Mobile Number must be at least 10 digits.
+            </div>
+            <div *ngIf="c['mobile'].errors['maxlength']">
+              Mobile Number can contain 10 digits only.
+            </div>
+            <div *ngIf="c['mobile'].errors['min']">
+              Mobile Number must be at least 10 digits.
+            </div>
+            <div *ngIf="c['mobile'].errors['max']">
+              Mobile Number can contain 10 digits only.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <input
+            type="text"
+            id="userLoginGender"
+            placeholder="Enter citizenId"
+            formControlName="gender"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && c['gender'].errors }"
+          />
+          <div *ngIf="submitted && c['gender'].errors" class="invalid-feedback">
+            <div *ngIf="c['gender'].errors['required']">Gender is required</div>
+            <div *ngIf="c['gender'].errors['citizenId']">
+              CitizenId must be a valid id
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Address</label>
+          <input
+            type="text"
+            id="userLoginAddress"
+            placeholder="Enter your address"
+            formControlName="address"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && c['address'].errors }"
+          />
+          <div
+            *ngIf="submitted && c['address'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="c['address'].errors['required']">
+              Address is required
+            </div>
+            <div *ngIf="c['address'].errors['address']">
+              CitizenId must be a valid id
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+          <a
+            id="userLoginSubmit"
+            href="#"
+            class="btn btn-sm animated-button victoria-two"
+          >
+            <button>SignUp</button>
+          </a>
+        </div>
+        Already have an account ?
+        <a href="AadharApp/citizens/logIn">Login</a>
+      </form>
+    </div>
+  </div>
+</div>

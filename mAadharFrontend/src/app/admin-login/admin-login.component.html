@@ -1,0 +1,74 @@
+<div><button (click)="loginUser()">Login as User</button></div>
+
+<h1 style="text-align: center" class="p-5">mAadhar Portal</h1>
+
+<div class="signin-container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="adminLogInForm" (ngSubmit)="onSubmit()">
+        <h3>Sign in</h3>
+
+        <div class="form-group">
+          <label>Login Id</label>
+          <input
+            type="text"
+            id="adminLogin"
+            placeholder="Enter loginId"
+            formControlName="loginId"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['loginId'].errors }"
+          />
+          <div
+            *ngIf="submitted && f['loginId'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['loginId'].errors['required']">
+              Login id is required
+            </div>
+            <div *ngIf="f['loginId'].errors['loginId']">
+              Login id must be a valid id.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            id="adminPassword"
+            type="password"
+            placeholder="Enter password"
+            class="form-control"
+            formControlName="password"
+            [ngClass]="{
+              'is-invalid': submitted && f['password'].errors
+            }"
+          />
+          <div
+            *ngIf="submitted && f['password'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['password'].errors['required']">
+              Password is required.
+            </div>
+            <div *ngIf="f['password'].errors['pattern']">
+              The password should have at least: One Uppercase, one lowercase,
+              one special character (@,#,&….), and one number
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <div [className]="cssStringVar">{{ status }}</div>
+
+        <div class="form-group">
+          <a
+            href="#"
+            id="adminLoginSubmit"
+            class="btn btn-sm animated-button victoria-two"
+          >
+            <button>Login</button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

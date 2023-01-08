@@ -1,0 +1,76 @@
+<div><button (click)="loginAdmin()">Login as Admin</button></div>
+
+<h1 style="text-align: center" class="p-5">mAadhar Portal</h1>
+
+<div class="signin-container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+        <h3>Sign in</h3>
+
+        <div class="form-group">
+          <label>Citizen Id</label>
+          <input
+            type="text"
+            placeholder="Enter citizenId"
+            formControlName="citizenId"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['citizenId'].errors }"
+          />
+          <div
+            *ngIf="submitted && f['citizenId'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['citizenId'].errors['required']">
+              CitizenId is required
+            </div>
+            <div *ngIf="f['citizenId'].errors['citizenId']">
+              CitizenId must be a valid id
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Enter mobile number as password"
+            class="form-control"
+            formControlName="password"
+            [ngClass]="{
+              'is-invalid': submitted && f['password'].errors
+            }"
+          />
+          <div
+            *ngIf="submitted && f['password'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['password'].errors['required']">
+              Password is required.
+            </div>
+            <div *ngIf="f['password'].errors['minlength']">
+              Password must be at least 10 digits.
+            </div>
+            <div *ngIf="f['password'].errors['maxlength']">
+              Password can contain 10 digits only.
+            </div>
+            <div *ngIf="f['password'].errors['min']">
+              Password must be at least 10 digits.
+            </div>
+            <div *ngIf="f['password'].errors['max']">
+              Password can contain 10 digits only.
+            </div>
+          </div>
+        </div>
+        <br />
+        <div [className]="cssStringVar">{{ status }}</div>
+        <div class="form-group">
+          <a href="#" class="btn btn-sm animated-button victoria-two">
+            <button>Login</button>
+          </a>
+        </div>
+        Don't have an account ?
+        <a href="/AadharApp/citizens/signUp">Create one</a>
+      </form>
+    </div>
+  </div>
+</div>

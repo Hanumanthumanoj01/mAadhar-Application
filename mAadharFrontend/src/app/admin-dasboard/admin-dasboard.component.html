@@ -1,0 +1,37 @@
+<button class="signoutButton" id="adminSignout" (click)="signOut()">
+  Signout
+</button>
+<div class="container table-container">
+  <table class="table p-4" *ngIf="newAadharApplications?.length">
+    <thead class="border-bottom">
+      <tr>
+        <th class="text-white">Application Id</th>
+        <th class="text-white">Citizen Id</th>
+        <th class="text-white">Application Date</th>
+        <th class="text-white">Passport Id</th>
+        <th></th>
+        <br />
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let application of newAadharApplications">
+        <td class="text-white">{{ application.applicationId }}</td>
+        <td class="text-white">{{ application.citizenId }}</td>
+        <td class="text-white">{{ application.dateOfApplication }}</td>
+        <td class="text-white">{{ application.passportId }}</td>
+        <td>
+          <button
+            class="bg-success text-white p-1"
+            (click)="approveApplication(application.applicationId)"
+          >
+            Approve
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 15vw" *ngIf="!newAadharApplications?.length">
+    <h3 class="text-center">No new applications found !</h3>
+  </div>
+</div>

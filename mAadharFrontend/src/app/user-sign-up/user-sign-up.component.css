@@ -1,0 +1,127 @@
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+form {
+  width: 40vw;
+  margin: auto 30vw;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 1vw;
+  color: #000000;
+  backdrop-filter: blur(0.3vw);
+  border: 0.2vw solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 4vw rgba(8, 7, 16, 0.6);
+  padding: 3.5vw 3.5vw;
+}
+
+form * {
+  font-family: "Poppins", sans-serif;
+  /*letter-spacing: 0.2vw;*/
+  outline: none;
+  border: none;
+}
+
+form h3 {
+  font-size: 3vw;
+  font-weight: bolder;
+  line-height: 3vw;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+label {
+  display: block;
+  margin-top: 2vw;
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+input {
+  border-radius: 0.5vw;
+  display: block;
+  height: 3vw;
+  width: 100%;
+  padding: 0 0.5vw;
+  margin-top: 0.8vw;
+  font-size: 1vw;
+  outline: 2px solid #0001;
+  background-color: #ffffff0d;
+  box-shadow: 19px 19px 42px #d9d9d9, -19px -19px 42px #ffffff;
+  color: white;
+}
+
+::placeholder {
+  color: rgb(200, 200, 200);
+}
+
+input:hover {
+  outline: 2px solid #0001;
+  color: white;
+}
+
+.form-control {
+  background: transparent;
+  color: white;
+}
+
+a.animated-button:link:after,
+a.animated-button:visited:after {
+  cursor: pointer;
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  z-index: -1;
+  -webkit-transition: all 0.75s ease 0s;
+  -moz-transition: all 0.75s ease 0s;
+  -o-transition: all 0.75s ease 0s;
+  transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover,
+a.animated-button:visited:hover {
+  color: #000;
+  text-shadow: none;
+}
+a.animated-button:link:hover:after,
+a.animated-button:visited:hover:after {
+  height: 450%;
+}
+a.animated-button:link,
+a.animated-button:visited {
+  margin-top: 1.5vw;
+  width: 100%;
+  border-radius: 0.5vw;
+  font-size: 1.8vw;
+  position: relative;
+  display: block;
+  color: white;
+  border-radius: 0;
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+a.animated-button.victoria-two {
+  border: 2px solid #ffffff;
+}
+a.animated-button.victoria-two:after {
+  background: #ffffff;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(25deg);
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 1vw 0;
+  background: transparent;
+}

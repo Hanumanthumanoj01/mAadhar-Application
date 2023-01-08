@@ -1,0 +1,9 @@
+body {
+  background: url("./assets/bg1.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.modal-open {
+  z-index: 1;
+}
